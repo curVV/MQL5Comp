@@ -1,0 +1,84 @@
+{
+    "build_systems":
+    [
+        {
+            // MQL5Comp Build System
+            // Add this, unmodified, to your build systems 
+            // in your.sublime-project file.
+            "name": "MQL5Comp Project Builder",
+            "target": "mqlf_comp_build"
+        }
+    ],
+
+    // MQL5Comp_Project
+    // Create this section (must be "MQL5Comp_Project")
+    "MQL5Comp_Project":
+    {
+        // Name of your project
+        "name": "fsnl_pluto",
+
+        // Description of your project
+        "description": "MQL4 Expert Advisor",
+
+        // Wine Prefix:
+        // If you use a different wine prefix, like say for a 32 bit app, 
+        // specify the full path here. "~" will be expanded to user's home.
+        "wine_prefix": "~/.wine32",
+
+        // OPTIONAL: Wine Project DOS Path
+        // A drive mapped in wine to access your project root directory.
+        // Example: "Y:\\mqlstuff\\mymqlproject", or just "Y:".
+        // If this is left blank or the map does not exist, the plugin 
+        // will attempt to automap the drive with your permission during 
+        // first run.
+        "wine_project_dos_path": "",
+
+        // MQL Type:
+        // Options: "expert", "indicator", "script"
+        "mql_type": "expert",
+
+        //Project MQL version:
+        //Opions "4" or "5"
+        "mql_version": "4",
+
+        // MQL source directory name.
+        // This is the name of your source directory containing the specific 
+        // MT MQL4/5 directory structure (See README). It should be located inside 
+        // the project root directory.
+        "mql_source_dir_name": "src",
+
+        // Compiler Name:
+        // Must be located in project source directory (inside "mql_source_dir_name")
+        "mql_compiler": "metaeditor.exe",
+
+        // Copy Mode:
+        // Options "smb" or "local"
+        // Relevant params must be specified.
+        // ("local" not implemented, might be dropped)
+        "copy_mode": "smb",
+
+        // SMB Copy Mode params:
+        // Either "smb_params" or "local_params"
+        "smb_params": {
+
+            // Windows user & password for 
+            // accessing the share.
+            "user": "your_windows_user",
+            "password": "your_windows_password",
+
+            // Server IP or hostname
+            "server": "192.168.0.42",
+
+            // SMB Share name:
+            // This share must point to your MT root dir or 
+            // application data dir that holds MQL4/5 data.
+            "share": "MetaTraderRootLive"
+        },
+
+        // Local Copy Mode params:
+        // (not implemented)
+        "local_params": {
+            "target_dir": "C:\\Program Files\\Meta Trader"
+        }
+    }
+}
