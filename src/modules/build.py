@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import threading, os, subprocess, re
+import threading, os, shutil, subprocess, re
 
 from . import settings
 from .log import Log
@@ -107,6 +107,12 @@ class Build(threading.Thread):
         """
 
 
+        self.local_params = None
+        """
+        Holds validated local paramaters
+        """
+
+
     def run(self):
 
         self.compile()
@@ -115,8 +121,8 @@ class Build(threading.Thread):
             self.smb_params = self.get_smb_params()
             self.smb_copy()
         elif self.copy_mode == "local":
-            # TODO: Do local copy shyte here
-            raise MQL5CompBuildError("Copy mode 'local' not implemented.")
+            self.local_params = self.get_local_params()
+            self.local_copy()
         else:
             raise MQL5CompBuildError("Copy mode '{}' not valid.".format(self.copy_mode))
 
@@ -229,6 +235,13 @@ class Build(threading.Thread):
             raise MQL5CompBuildError("MQL5Comp Error: No smb paramaters configured.")
 
 
+    def get_local_params(self):
+        try:
+            return settings.local_params(self.window)
+        except KeyError:
+            raise MQL5CompBuildError("MQL5Comp Error: No local paramaters configured.")
+
+
     def smb_copy(self):
         build_path = self.project_path + "/" + self.mql_source_dir_name + "/" + self.mql_version_subdir + "/" + self.mql_type_subdir
 
@@ -255,6 +268,25 @@ class Build(threading.Thread):
                     log.debug(copy_proc.decode('utf-8'))
                 except subprocess.CalledProcessError as e:
                     raise MQL5CompBuildError(e.output)
+
+
+    def local_copy(self):
+        build_path = self.project_path + "/" + self.mql_source_dir_name + "/" + self.mql_version_subdir + "/" + self.mql_type_subdir
+        target = os.path.expanduser(self.local_params["target_root_dir"]) + "/" + self.mql_version_subdir + "/" + self.mql_type_subdir
+
+        if not os.path.exists(target):
+            raise MQL5CompBuildError("Target directory not found: {}".format(target))
+
+        for filename in os.listdir(build_path):
+            if filename.endswith(".ex4") or filename.endswith(".ex5"):
+                try:
+                    file = build_path + "/" + filename
+                    log.info("Copying {file} to {target}...".format(
+                        file=file, 
+                        target=target))
+                    shutil.copy(file, target)
+                except Exception as e:
+                    raise MQL5CompBuildError(e)
 
 
 

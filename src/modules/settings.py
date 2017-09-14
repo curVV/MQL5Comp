@@ -73,6 +73,10 @@ def smb_params(window):
     return get(window, "project", "smb_params")
 
 
+def local_params(window):
+    return get(window, "project", "local_params")
+
+
 def project_path(window):
     project_path = get(window, "global", "project_path")
     if project_path == None or not os.path.exists(project_path):

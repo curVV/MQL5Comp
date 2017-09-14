@@ -54,11 +54,9 @@
         // Copy Mode:
         // Options "smb" or "local"
         // Relevant params must be specified.
-        // ("local" not implemented, might be dropped)
         "copy_mode": "smb",
 
         // SMB Copy Mode params:
-        // Either "smb_params" or "local_params"
         "smb_params": {
 
             // Windows user & password for 
@@ -74,11 +72,11 @@
             // application data dir that holds MQL4/5 data.
             "share": "MetaTraderRootLive"
         },
-
-        // Local Copy Mode params:
-        // (not implemented)
+        // Local Copy Mode params
         "local_params": {
-            "target_dir": "C:\\Program Files\\Meta Trader"
+            // Target Root Directory:
+            // Root target directory (where mql4/5 data is located)
+            "target_root_dir": "~/.wine32/drive_c/Program Files/MetaTrader 4"
         }
     }
 }

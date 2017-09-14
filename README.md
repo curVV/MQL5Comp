@@ -9,6 +9,7 @@ On Linux:
 Sublime Text 3.x  
 Wine (Windows compatibility software)  
 smbclient
+(Metatrader id running on wine - use local copy mode)
 
 On Windows:  
 Metatrader
