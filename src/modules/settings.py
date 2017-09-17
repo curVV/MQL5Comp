@@ -129,10 +129,13 @@ def wine_project_dos_path(window):
     wine_project_dos_path = get(window, "project", "wine_project_dos_path")
     if not wine_project_dos_path:
         wine_project_dos_path = find_wine_project_drive(wine_prefix(window), project_path(window))
-        if not wine_project_dos_path and sublime.ok_cancel_dialog(
+        if not wine_project_dos_path:
+            if sublime.ok_cancel_dialog(
                 "A wine project drive map was not found. " \
                 "Would you like to have one created automatically for you?", "Yes, map the wine drive!"):
-            wine_project_dos_path = create_wine_project_drive(wine_prefix(window), project_path(window))
-            if not wine_project_dos_path:
-                raise MQL5CompSettingsError("Could not find or map a wine drive for the project.")
+                wine_project_dos_path = create_wine_project_drive(wine_prefix(window), project_path(window))
+                if not wine_project_dos_path:
+                    raise MQL5CompSettingsError("Could not find or map a wine drive for the project.")
+            else:
+                raise MQL5CompSettingsError("Unable to continue without a mapped wine drive.")
     return wine_project_dos_path
