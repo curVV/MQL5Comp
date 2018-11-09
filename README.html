@@ -730,25 +730,22 @@ pre {
 }
 </style><title>README</title></head><body><article class="markdown-body"><h1>
 <a id="user-content-mql5comp" class="anchor" href="#mql5comp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MQL5Comp</h1>
-<p>A Sublime Text 3 plugin for building MetaTrader's MQL projects from a Linux system.</p>
+<p>A Sublime Text 3 plugin for building MetaTrader's MQL projects on a Linux system.</p>
 <h3>
 <a id="user-content-requirements" class="anchor" href="#requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements</h3>
-<p>On Linux:<br>
-Sublime Text 3.x<br>
-Wine (Windows compatibility software)<br>
-smbclient
-(Metatrader id running on wine - use local copy mode)</p>
-<p>On Windows:<br>
-Metatrader</p>
+<p>Sublime Text 3.x<br>
+Wine - Windows compatibility software<br>
+smbclient - if Metatrader is running on a Windows machine<br>
+Metatrader 4/5 - <a href="http://www.metatrader.com" rel="nofollow">www.metatrader.com</a></p>
 <h3>
-<a id="user-content-plugin-manual-install" class="anchor" href="#plugin-manual-install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Plugin Manual Install</h3>
+<a id="user-content-install" class="anchor" href="#install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install</h3>
 <p>Copy the <code>MQL5Comp.sublime-package</code> from this repo's build directory into your Sublime Text "Installed Packages" location.
 It should be at <code>~/.config/sublime-text-3/Installed Packages/</code></p>
 <p>or</p>
-<p>Clone MQL5Comp:
+<p>Clone MQL5Comp:<br>
 <code>git clone http://github.com/curvian/MQL5Comp</code><br>
-Create package dir &amp; copy contents of MQL5Comp/src into it:
-<code>mkdir ~/.config/sublime-text-3/Packages/MQL5Comp</code>
+Create package dir &amp; copy contents of MQL5Comp/src into it:<br>
+<code>mkdir ~/.config/sublime-text-3/Packages/MQL5Comp</code><br>
 <code>cp -r MQL5Comp/src/* ~/.config/sublime-text-3/Packages/MQL5Comp</code></p>
 <p>or</p>
 <p>Install with Package Manager (Not yet available)</p>
@@ -796,4 +793,8 @@ Windows machine running Metatrader platform (as well as in your source location)
 <h3>
 <a id="user-content-plugin-development" class="anchor" href="#plugin-development" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Plugin Development</h3>
 <p>See support/dev/ location for simple plugin development helpers</p>
+<h3>
+<a id="user-content-known-issues" class="anchor" href="#known-issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Known Issues</h3>
+<p>Sometimes when running build for first time on new project, the wine message "wine is being updated" hangs/does not complete.
+Kill the process and try again. Should be fine from there.</p>
 </article></body></html>

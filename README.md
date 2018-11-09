@@ -1,31 +1,27 @@
 # MQL5Comp
 
-A Sublime Text 3 plugin for building MetaTrader's MQL projects from a Linux system.  
+A Sublime Text 3 plugin for building MetaTrader's MQL projects on a Linux system.  
 
 
 ### Requirements  
 
-On Linux:  
 Sublime Text 3.x  
-Wine (Windows compatibility software)  
-smbclient
-(Metatrader id running on wine - use local copy mode)
-
-On Windows:  
-Metatrader
+Wine - Windows compatibility software  
+smbclient - if Metatrader is running on a Windows machine  
+Metatrader 4/5 - www.metatrader.com  
 
 
-### Plugin Manual Install  
+### Install    
 
 Copy the `MQL5Comp.sublime-package` from this repo's build directory into your Sublime Text "Installed Packages" location. 
 It should be at `~/.config/sublime-text-3/Installed Packages/`  
   
 or  
 
-Clone MQL5Comp:
+Clone MQL5Comp:  
 `git clone http://github.com/curvian/MQL5Comp`  
-Create package dir & copy contents of MQL5Comp/src into it:
-`mkdir ~/.config/sublime-text-3/Packages/MQL5Comp`
+Create package dir & copy contents of MQL5Comp/src into it:  
+`mkdir ~/.config/sublime-text-3/Packages/MQL5Comp`  
 `cp -r MQL5Comp/src/* ~/.config/sublime-text-3/Packages/MQL5Comp`  
   
 or  
@@ -85,3 +81,7 @@ Windows machine running Metatrader platform (as well as in your source location)
 See support/dev/ location for simple plugin development helpers  
 
 
+### Known Issues  
+
+Sometimes when running build for first time on new project, the wine message "wine is being updated" hangs/does not complete. 
+Kill the process and try again. Should be fine from there.
