@@ -15,9 +15,9 @@ On Windows:
 Metatrader
 
 
-### Manual Install  
+### Plugin Manual Install  
 
-Copy the `MQL5Comp.sublime-package` from this repo's build directory into your Sublime Text Installed Packages. 
+Copy the `MQL5Comp.sublime-package` from this repo's build directory into your Sublime Text "Installed Packages" location. 
 It should be at `~/.config/sublime-text-3/Installed Packages/`  
   
 or  
@@ -33,13 +33,17 @@ or
 Install with Package Manager (Not yet available)  
 
 
-### Create MQL Project
+
+### Usage  
+
+
+#### 1. Prepare MQL Project
 
 It is important to get the directory structure right for the project.  
 
 Inside your sublime project directory must exist a source directory with any name of your choice ("src", or "my_expert", anything) and specified in your `.sublime-project` file, along with all the other settings.
 
-From there a specific structure must me maintained for the metatrader compiler to work correctly, and for the files to be installed/copied correctly.  
+From there a specific structure must be maintained for the metatrader compiler to work correctly, and for the files to be installed/copied correctly.  
 
 
 1. Create your project directory structure as follows:
@@ -66,11 +70,11 @@ Read the comments inside and copy the relevant settings to your own `MyProject.s
 This will make sense when you edit your project file settings as specified in `example.sublime-project`
 
 
-### Usage
+#### 2. Usage - Build Project
 
 If all is set up correctly, all you have to do is hit <kbd>ctrl</kbd>+<kbd>B</kbd> to build the current mq4 file open in Sublime Text.
 
-The first time MQL5Comp build ommand is run it will check for the relevant drive mapping in wine and create it if it does not exist.  
+The first time MQL5Comp build command is run it will check for the relevant drive mapping in wine and create it if it does not exist.  
 
 After a successful build, the compiled ex4 file can be found in the relevant `Experts`, `Scripts`, or `Indicators` directory on your 
 Windows machine running Metatrader platform (as well as in your source location) and should be loadable as usual.
