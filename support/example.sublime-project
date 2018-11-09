@@ -20,12 +20,12 @@
         // Description of your project
         "description": "MQL4 Expert Advisor",
 
-        // Wine Prefix:
+        // Wine prefix:
         // If you use a different wine prefix, like say for a 32 bit app, 
         // specify the full path here. "~" will be expanded to user's home.
         "wine_prefix": "~/.wine32",
 
-        // OPTIONAL: Wine Project DOS Path
+        // OPTIONAL: Wine project DOS path
         // A drive mapped in wine to access your project root directory.
         // Example: "Y:\\mqlstuff\\mymqlproject", or just "Y:".
         // If this is left blank or the map does not exist, the plugin 
@@ -47,16 +47,16 @@
         // the project root directory.
         "mql_source_dir_name": "src",
 
-        // Compiler Name:
+        // Compiler name:
         // Must be located in project source directory (inside "mql_source_dir_name")
         "mql_compiler": "metaeditor.exe",
 
-        // Copy Mode:
-        // Options "smb" or "local"
-        // Relevant params must be specified.
+        // Copy mode - "smb" or "local"
         "copy_mode": "smb",
 
-        // SMB Copy Mode params:
+        // -- Copy mode parameters --
+
+        // SMB copy mode (MT is running on windows) params:
         "smb_params": {
 
             // Windows user & password for 
@@ -64,18 +64,17 @@
             "user": "your_windows_user",
             "password": "your_windows_password",
 
-            // Server IP or hostname
+            // Windows machine IP or hostname
             "server": "192.168.0.42",
 
-            // SMB Share name:
-            // This share must point to your MT root dir or 
+            // SMB share name:
+            // This is the share name that points to your MT root dir or 
             // application data dir that holds MQL4/5 data.
             "share": "MetaTraderRootLive"
         },
-        // Local Copy Mode params
+        // Local Copy Mode (MT is running on linux+wine) params:
         "local_params": {
-            // Target Root Directory:
-            // Root target directory (where mql4/5 data is located)
+            // Target root directory (where mql4/5 data is located)
             "target_root_dir": "~/.wine32/drive_c/Program Files/MetaTrader 4"
         }
     }
