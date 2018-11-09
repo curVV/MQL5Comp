@@ -126,6 +126,8 @@ class Build(threading.Thread):
         else:
             raise MQL5CompBuildError("Copy mode '{}' not valid.".format(self.copy_mode))
 
+        log.info("Finished.")
+
 
     def get_mql_compiler(self, window):
         mql_compiler = settings.mql_compiler(window)
@@ -207,7 +209,7 @@ class Build(threading.Thread):
             log.debug(build_proc.decode('utf-8'))
         except subprocess.CalledProcessError as e:
             if e.returncode == 1:
-                log.warning("Possible errors (wine) - double check results.")
+                log.warning("Possible errors (wine is whiny) - double check results.")
             else:
                 raise MQL5CompBuildError(str(e))
 
