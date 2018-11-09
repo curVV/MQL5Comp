@@ -20,10 +20,10 @@
 package_name="MQL5Comp"
 
 # Project source path
-src_path="/home/curvian/workspace/Sublime/plugins/mql5comp/src/" 
+src_path="${HOME}/workspace/Sublime/plugins/mql5comp/src/" 
 
 # Sublime config root path
-base_path="/home/curvian/.config/sublime-text-3/"
+base_path="${HOME}/.config/sublime-text-3/"
 
 ########################################################################################
 
