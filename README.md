@@ -73,7 +73,7 @@ If all is set up correctly, all you have to do is hit <kbd>ctrl</kbd>+<kbd>B</kb
 The first time MQL5Comp build command is run it will check for the relevant drive mapping in wine and create it if it does not exist.  
 
 After a successful build, the compiled ex4 file can be found in the relevant `Experts`, `Scripts`, or `Indicators` directory on your 
-Windows machine running Metatrader platform (as well as in your source location) and should be loadable as usual.
+target machine (smb or local) running Metatrader platform (as well as in your source location) and should be loadable as usual.
 
 
 ### Plugin Development  
