@@ -159,28 +159,28 @@ class Build(threading.Thread):
 
     def compile_log_result(self):
         """ 
-        Get last line of log file.
-        Why: Wine exits unnecessary with code 1 even though 
-        process completes without error.
+        Write compile log from log file.
+        
+        Wine exits unnecessary with code 1 even though process completes without error, 
+        so be sure to include last line of log containing build results.
         """
         file = self.source_file[:-4] + ".log"
         log.info("[COMPILE LOG] log file is here: {}".format(file))
+        
+        log_line = 'Warning: No build log. Check console for errors.'
+
         try:
             with open(file, encoding="utf16", mode="r") as f:
-                count = 0
                 for line in f:
-                    if count > 1 and len(line) > 1:
-                        log.info("[COMPILE LOG] " + re.sub(r"\n|\r", "", line))
-                    #if re.match(r"^Result: ", last_line.decode('utf-8')):
-                    #   break;
-                    count = count + 1
-            return line
+                    if len(line) > 2:
+                        log_line = "[COMPILE LOG] " + re.sub(r"\n|\r", "", line)
+                        log.info(log_line)
+
         except OSError:
             log.warning("Log file not found.")
-            return "None"
-        log.warning("Could not read compile result.")
-        return "None"
-            
+
+        # Write last log line to status
+        self.window.active_view().set_status('mql_comp_build_log_result', log_line)
 
 
     def compile(self):
