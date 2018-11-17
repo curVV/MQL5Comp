@@ -180,11 +180,12 @@ class Build(threading.Thread):
             log.warning("Log file not found.")
 
         # Write last log line to status
-        self.window.active_view().set_status('mql_comp_build_log_result', log_line)
+        self.window.active_view().set_status('mql_comp_build_log', log_line)
 
 
     def compile(self):
         log.info("Compiling...")
+        self.window.active_view().set_status('mql_comp_build_log', '**** COMPILING ****')
 
         source_file_path = self.wine_project_dos_path + "\\" + self.mql_source_dir_name + "\\" + self.source_file_relative_dos_path
 
@@ -211,6 +212,7 @@ class Build(threading.Thread):
             if e.returncode == 1:
                 log.warning("Possible errors (wine is whiny) - double check results.")
             else:
+                self.window.active_view().set_status('mql_comp_build_log', '')
                 raise MQL5CompBuildError(str(e))
 
         self.compile_log_result()
